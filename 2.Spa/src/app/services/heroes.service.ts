@@ -70,6 +70,17 @@ export class HeroesService {
       let heroesArray:Heroe[] = [];
       search_term = search_term.toLowerCase();
 
+      for( let heroe of this.heroes ) {
+
+          let nombre = heroe.nombre.toLowerCase();
+          if ( nombre.indexOf( search_term )>=0) {
+            heroesArray.push ( heroe )
+          }
+
+      }
+
+      return heroesArray;
+
   }
 
 }
