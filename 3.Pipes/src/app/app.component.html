@@ -36,6 +36,94 @@
         <td> slice:1:5 </td>
         <td> {{ array | slice:1:5 }} </td>
       </tr>
+      <tr>
+        <td>{{ PI }}</td>
+        <td> number:'3.0-0' </td>
+        <td> {{ PI | number:'3.0-0' }} </td>
+      </tr>
+      <tr>
+        <td>{{ PI }}</td>
+        <td> number:'1.0-2' </td>
+        <td> {{ PI | number:'1.0-2' }} </td>
+      </tr>
+      <tr>
+        <td>{{ a }}</td>
+        <td> percent </td>
+        <td> {{ a | percent }} </td>
+      </tr>
+      <tr>
+        <td>{{ a }}</td>
+        <td> percent:'2.2-2' </td>
+        <td> {{ a | percent:'2.2-2' }} </td>
+      </tr>
+      <tr>
+        <td>{{ number_example }}</td>
+        <td> currency </td>
+        <td> {{ number_example | currency }} </td>
+      </tr>
+      <tr>
+        <td>{{ number_example }}</td>
+        <td> currency:'COP' </td>
+        <td> {{ number_example | currency:'COP' }} </td>
+      </tr>
+      <tr>
+        <td>{{ number_example }}</td>
+        <td> currency:'EUR':true </td>
+        <td> {{ number_example | currency:'EUR':true }} </td>
+      </tr>
+      <tr>
+        <td>{{ number_example }}</td>
+        <td> currency:'EUR':true </td>
+        <td> {{ number_example | currency:'EUR':true:'4.0-0' }} </td>
+      </tr>
+      <tr>
+        <td>{{ number_example }}</td>
+        <td> number:'.2-2' </td>
+        <td> {{ number_example | number:'.2-2' }} </td>
+      </tr>
+      <tr>
+        <td>{{ promiseValue }}</td>
+        <td> async </td>
+        <td> {{ promiseValue | async }} </td>
+      </tr>
+      <tr>
+        <td>{{ exampleDate }}</td>
+        <td> date </td>
+        <td> {{ exampleDate | date }} </td>
+      </tr>
+      <tr>
+        <td>{{ exampleDate }}</td>
+        <td> date:'medium' </td>
+        <td> {{ exampleDate | date:'medium' }} </td>
+      </tr>
+      <tr>
+        <td>{{ exampleDate }}</td>
+        <td> date:'MMMM - dd' </td>
+        <td> {{ exampleDate | date:'MMMM - dd' }} </td>
+      </tr>
+      <tr>
+        <td>{{ nombre2 }}</td>
+        <td> capitalizado </td>
+        <td> {{ nombre2 | capitalizado }} </td>
+      </tr>
+      <tr>
+        <td>{{ nombre2 }}</td>
+        <td> capitalizado </td>
+        <td> {{ nombre2 | capitalizado:false }} </td>
+      </tr>
+      <tr>
+        <td>{{ nombre }}</td>
+        <td>
+          contrasena:{{ activar }}
+          <br>
+          <button
+            (click)="activar = !activar"
+            type="button"
+            name="button"
+            class="btn btn-outline-primary">Activar/Desactivar</button>
+        </td>
+        <td> {{ nombre | contrasena:activar }} </td>
+      </tr>
     </tbody>
   </table>
 
@@ -43,6 +131,18 @@
   <ul>
     <li *ngFor="let item of array | slice:5:20">{{ item }}</li>
   </ul>
+
+  <h4>JSON</h4>
+  <pre>
+    {{ heroe | json }}
+  </pre>
+
+  <h4>Youtube <small>video</small></h4>
+  <hr>
+  <iframe width="560" height="315" [src]="video | domseguro:'https://www.youtube.com/embed/'" frameborder="0" allowfullscreen></iframe>
+
+  <br><br><br><br><br><br><br>
+
 
 
 
